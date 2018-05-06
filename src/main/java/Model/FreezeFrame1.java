@@ -15,7 +15,7 @@ public class FreezeFrame1 {
     //故障码
     String FaultCode = "0-0";
     //环境温度
-    double AmbientTemperature = -40;
+    double AmbientTemperature = 0;
     //蓄电池电压
     double BatteryVoltage = 0;
     //轨压
@@ -29,21 +29,21 @@ public class FreezeFrame1 {
     //进气压力
     double ManifoldAbsolutePressure = 0;
     //扭矩模式
-    double TorqueMode = 255;
+    double TorqueMode = 0;
     //冻结帧长度
-     int FreezeFrameLength = 15;
+     int FreezeFrameLength = 0;
     //进气温度
-    double IntakeAirTemperature  = -120.375;
+    double IntakeAirTemperature  = 0;
     //油门踏板1开度
     double AcceleratorPedal1Opening = 0;
     //油门踏板2开度
     double AcceleratorPedal2Opening = 0;
     //进气流量
-    double IntakeFlow = 269.9;
+    double IntakeFlow = 0;
     //油门踏板传感器1信号
     double AcceleratorPedalSensor1Signal = 0;
     //监控模块电压
-    double MonitoringModuleVoltage = 23.94000053;
+    double MonitoringModuleVoltage = 0;
 
     public int getId() {
         return id;

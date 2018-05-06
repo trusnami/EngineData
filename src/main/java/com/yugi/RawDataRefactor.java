@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import Model.FreezeFrame1;
 import com.csvreader.CsvReader;
@@ -267,6 +268,18 @@ public class RawDataRefactor
 
             }
 
+//            freezeFrame1s.sort(new Comparator<FreezeFrame1>() {
+//                @Override
+//                public int compare(FreezeFrame1 o1, FreezeFrame1 o2) {
+//                    if (o1.getFaultCode().compareTo(o2.getFaultCode())<0) {
+//                        return 0;
+//                    }
+//                    else {
+//                        return 1;
+//                    }
+//                }
+//            });
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -276,7 +289,7 @@ public class RawDataRefactor
 
     public static void writeFreezeFrames() {
         // 定义一个CSV路径
-        String csvFilePath = "src/data/my_csv/freeze_frame.csv";
+        String csvFilePath = "src/data/my_csv/freeze_frame_0.csv";
         try {
             // 创建CSV写对象 例如:CsvWriter(文件路径，分隔符，编码格式);
             CsvWriter csvWriter = new CsvWriter(csvFilePath, ',', Charset.forName("UTF-8"));
@@ -307,6 +320,13 @@ public class RawDataRefactor
 
             for (FreezeFrame1 freezeFrame1:
                  freezeFrame1s) {
+                if (freezeFrame1.getFaultCode().contains("Mar") || freezeFrame1.getFaultCode().contains("May")
+                        || freezeFrame1.getFaultCode().contains("Nov") || freezeFrame1.getFaultCode().contains("Apr")
+                        || freezeFrame1.getFaultCode().contains("Sep")){
+//                    System.out.println(freezeFrame1.getFaultCode());
+                    continue;
+                }
+
                 String[] csvContent = { freezeFrame1.getId()+"",
                         freezeFrame1.getFaultCode(),
                         freezeFrame1.getSpeed()+"",
