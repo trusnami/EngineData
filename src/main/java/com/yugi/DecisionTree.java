@@ -35,8 +35,9 @@ public class DecisionTree {
 //        data = new double[] {25.5, 4340, 1, 0 ,0, 0, 0, 0, 0, 5, 15 ,0, 0, 0, 0, 0, 0, 0
 //
 //        };
+        Object[][] rawData = readCSV();
         // 读取样本集
-        Map<Object, List<Sample>> samples = readSamples(attrNames);
+        Map<Object, List<Sample>> samples = readSamples(attrNames, rawData);
         // 生成决策树
         Object decisionTree = generateDecisionTree(samples, attrNames);
         // 决策树剪枝
@@ -48,8 +49,10 @@ public class DecisionTree {
         // 利用生成的决策树判断
 //        decide(data,decisionTree);
         String path = "src/data/my_csv/test.csv";
+        String[][] testData;
+        testData = readTestCSV(path);
         double precision = 0;
-        precision = testPrecision(path,decisionTree);
+        precision = testPrecision(testData,decisionTree);
         System.out.println("precision:"+precision);
 //        double[][] testData = readTestCSV(path);
 //        for (double[] data:
@@ -93,10 +96,8 @@ public class DecisionTree {
         return rawData;
     }
 
-    static Map<Object, List<Sample>> readSamples(String[] attrNames) {
+    static Map<Object, List<Sample>> readSamples(String[] attrNames, Object[][] rawData) {
         // 样本属性及其所属分类（数组中的最后一个元素为样本所属分类）
-        Object[][] rawData;
-        rawData = readCSV();
         // 读取样本属性及其所属分类，构造表示样本的Sample对象，并按分类划分样本集
         Map<Object, List<Sample>> ret = new HashMap<Object, List<Sample>>();
         for (Object[] row : rawData) {
@@ -114,6 +115,8 @@ public class DecisionTree {
         }
         return ret;
     }
+
+
     /**
      * 构造决策树
      */
@@ -347,7 +350,7 @@ public class DecisionTree {
                 for (int j = 0; j < 19; j++) {
                     rawData[i][j] = csvFileList.get(i)[j];
                 }
-                System.out.println(rawData[i][18]);
+//                System.out.println(rawData[i][18]);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -361,10 +364,8 @@ public class DecisionTree {
      * 读取测试数据集，并返回决策准确率
      */
 
-    static double testPrecision(String path, Object decisionTree){
-        String[][] testData;
-        testData = readTestCSV(path);
-        int rightCode = 0;
+    static double testPrecision(String[][] testData, Object decisionTree){
+        double rightCode = 0;
         String faultCode = null;
         for (String[] data:
              testData) {
@@ -376,7 +377,7 @@ public class DecisionTree {
             }
         }
 
-        return 100*rightCode/testData.length;
+        return 100 * rightCode/testData.length;
     }
 
     /**
@@ -392,7 +393,7 @@ public class DecisionTree {
         }
 
         String faultCode = scanRecursive(decisionTree, 0, null, testData);
-        System.out.println("decide faultCode:"+faultCode);
+        System.out.println("decide faultCode: "+faultCode);
         return faultCode;
     }
 
@@ -405,7 +406,7 @@ public class DecisionTree {
             String attrName = tree.getAttribute();
             int num = 0;
             switch (attrName) {
-                case "Spped":
+                case "Speed":
                     num = 0;
                     break;
                 case "EngineSpeed":
@@ -469,22 +470,22 @@ public class DecisionTree {
 
             }
 
-            if (!result.equals("unknown fault")){
-                return result;
-            }
-
-            Object closestValue = null;
-            double minDistance = Double.MAX_VALUE;
-            for (Object attrValue : tree.getAttributeValues()) {
-                double distance = Math.abs(data[num] - Double.parseDouble((String)attrValue));
-                if (distance < minDistance){
-                    minDistance = distance;
-                    closestValue = attrValue;
-                }
-            }
-            Object child = tree.getChild(closestValue);
-            result = scanRecursive(child, level, attrName + " = "
-                    + data[num],data);
+//            if (!result.equals("unknown fault")){
+//                return result;
+//            }
+//
+//            Object closestValue = null;
+//            double minDistance = Double.MAX_VALUE;
+//            for (Object attrValue : tree.getAttributeValues()) {
+//                double distance = Math.abs(data[num] - Double.parseDouble((String)attrValue));
+//                if (distance < minDistance){
+//                    minDistance = distance;
+//                    closestValue = attrValue;
+//                }
+//            }
+//            Object child = tree.getChild(closestValue);
+//            result = scanRecursive(child, level, attrName + " = "
+//                    + data[num],data);
             return result;
 //            System.out.println("unknown fault");
         } else {

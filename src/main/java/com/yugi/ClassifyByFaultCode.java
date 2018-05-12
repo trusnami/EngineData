@@ -17,18 +17,69 @@ public class ClassifyByFaultCode {
 
     {
         System.out.println( "Hello World!" );
-        readFreezeFrames();
+        String readFilePath;
+        readFilePath = "src/data/my_csv/freeze_frame_1.csv";
+        readFilePath = "src/data/my_csv/freeze_frame_2.csv";
+        String[] csvHeaders;
+        csvHeaders = new String[]{ "id",
+                "FaultCode",
+                "Speed",
+                "EngineSpeed",
+                "CoolantTemperature",
+                "AccelerationPedal1",
+                "AmbientTemperature",
+                "BatteryVoltage",
+                "RailPressure",
+                "ComputationalLoadValue",
+                "AtmosphericPressure",
+                "EngineLoad",
+                "ManifoldAbsolutePressure",
+                "TorqueMode",
+                "FreezeFrameLength",
+                "IntakeAirTemperature",
+                "AcceleratorPedal1Opening",
+                "AcceleratorPedal2Opening",
+                "IntakeFlow",
+                "AcceleratorPedalSensor1Signal",
+                "MonitoringModuleVoltage" };
+        csvHeaders = new String[]{
+                "Speed",
+                "EngineSpeed",
+                "CoolantTemperature",
+                "AccelerationPedal1",
+                "AmbientTemperature",
+                "BatteryVoltage",
+                "RailPressure",
+                "ComputationalLoadValue",
+                "AtmosphericPressure",
+                "EngineLoad",
+                "ManifoldAbsolutePressure",
+                "TorqueMode",
+                "IntakeAirTemperature",
+                "AcceleratorPedal1Opening",
+                "AcceleratorPedal2Opening",
+                "IntakeFlow",
+                "AcceleratorPedalSensor1Signal",
+                "MonitoringModuleVoltage",
+                "FaultCode",};
+        readFreezeFrames(readFilePath);
         readFaultCode();
-        writeClassifiedFreezeFrames();
+        String writePath;
+        writePath = "classify";
+        writePath = "classify2";
+        int faultCodenum;
+        faultCodenum = 0;
+        faultCodenum = 18;
+        writeClassifiedFreezeFrames(csvHeaders, faultCodenum, writePath);
 
     }
 
-    public static void readFreezeFrames() {
+    public static void readFreezeFrames(String path) {
         try {
             // 用来保存数据
             freezeFrames = new ArrayList<String[]>();
             // 定义一个CSV路径
-            String csvFilePath = "src/data/my_csv/freeze_frame_1.csv";
+            String csvFilePath = path;
             // 创建CSV读对象 例如:CsvReader(文件路径，分隔符，编码格式);
             CsvReader reader = new CsvReader(csvFilePath, ',', Charset.forName("UTF-8"));
             // 跳过表头 如果需要表头的话，这句可以忽略
@@ -71,46 +122,26 @@ public class ClassifyByFaultCode {
 
     }
 
-    public static void writeClassifiedFreezeFrames(){
+    public static void writeClassifiedFreezeFrames(String[] headers , int faultCodeNum,String writePath){
         for (String[] csvContent:
              faultCodes) {
-            writeCSV(csvContent[0]);
+            writeCSV(csvContent[0], headers, faultCodeNum, writePath);
         }
     }
 
-    public static void writeCSV(String faultCode) {
+    public static void writeCSV(String faultCode, String[] headers, int faultCodeNum, String writePath) {
         // 定义一个CSV路径
-        String csvFilePath = "src/data/my_csv/classify/"+faultCode+".csv";
+        String csvFilePath = "src/data/my_csv/"+writePath+"/"+faultCode+".csv";
         try {
             // 创建CSV写对象 例如:CsvWriter(文件路径，分隔符，编码格式);
             CsvWriter csvWriter = new CsvWriter(csvFilePath, ',', Charset.forName("UTF-8"));
             // 写表头
-            String[] csvHeaders = { "id",
-                    "FaultCode",
-                    "Speed",
-                    "EngineSpeed",
-                    "CoolantTemperature",
-                    "AccelerationPedal1",
-                    "AmbientTemperature",
-                    "BatteryVoltage",
-                    "RailPressure",
-                    "ComputationalLoadValue",
-                    "AtmosphericPressure",
-                    "EngineLoad",
-                    "ManifoldAbsolutePressure",
-                    "TorqueMode",
-                    "FreezeFrameLength",
-                    "IntakeAirTemperature",
-                    "AcceleratorPedal1Opening",
-                    "AcceleratorPedal2Opening",
-                    "IntakeFlow",
-                    "AcceleratorPedalSensor1Signal",
-                    "MonitoringModuleVoltage" };
+            String[] csvHeaders = headers;
             csvWriter.writeRecord(csvHeaders);
             // 写内容
             for (String[] csvContent:
                  freezeFrames) {
-                if (csvContent[1].equals(faultCode)){
+                if (csvContent[faultCodeNum].equals(faultCode)){
                     csvWriter.writeRecord(csvContent);
                 }
             }
