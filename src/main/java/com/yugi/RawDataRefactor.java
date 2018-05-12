@@ -39,7 +39,7 @@ public class RawDataRefactor
             reader.readHeaders();
             // 逐行读入除表头的数据
             while (reader.readRecord()) {
-                System.out.println(reader.getRawRecord());
+//                System.out.println(reader.getRawRecord());
                 csvFileList.add(reader.getValues());
             }
             reader.close();

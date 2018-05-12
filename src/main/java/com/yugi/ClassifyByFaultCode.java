@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-public class PartitiionByFaultCode {
+public class ClassifyByFaultCode {
 
     public static ArrayList<String[]> freezeFrames;
     public static ArrayList<String[]> faultCodes;
