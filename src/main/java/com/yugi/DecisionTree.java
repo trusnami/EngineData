@@ -386,21 +386,21 @@ public class DecisionTree {
 
     static String decide(String[] data ,Object decisionTree){
 
-        System.out.println();
-        double[] testData = new double[18];
-        for (int i = 0; i < 18; i++) {
+//        System.out.println();
+        double[] testData = new double[data.length-1];
+        for (int i = 0; i < data.length-1; i++) {
             testData[i] = Double.parseDouble(data[i]);
         }
 
         String faultCode = scanRecursive(decisionTree, 0, null, testData);
-        System.out.println("decide faultCode: "+faultCode);
+//        System.out.println("decide faultCode: "+faultCode);
         return faultCode;
     }
 
     static String scanRecursive(Object obj, int level, Object from, double[] data){
         String result = "unknown fault";
-        if (from != null)
-            System.out.printf("(%s):", from);
+//        if (from != null)
+//            System.out.printf("(%s):", from);
         if (obj instanceof Tree) {
             Tree tree = (Tree) obj;
             String attrName = tree.getAttribute();
@@ -470,22 +470,22 @@ public class DecisionTree {
 
             }
 
-//            if (!result.equals("unknown fault")){
-//                return result;
-//            }
-//
-//            Object closestValue = null;
-//            double minDistance = Double.MAX_VALUE;
-//            for (Object attrValue : tree.getAttributeValues()) {
-//                double distance = Math.abs(data[num] - Double.parseDouble((String)attrValue));
-//                if (distance < minDistance){
-//                    minDistance = distance;
-//                    closestValue = attrValue;
-//                }
-//            }
-//            Object child = tree.getChild(closestValue);
-//            result = scanRecursive(child, level, attrName + " = "
-//                    + data[num],data);
+            if (!result.equals("unknown fault")){
+                return result;
+            }
+
+            Object closestValue = null;
+            double minDistance = Double.MAX_VALUE;
+            for (Object attrValue : tree.getAttributeValues()) {
+                double distance = Math.abs(data[num] - Double.parseDouble((String)attrValue));
+                if (distance < minDistance){
+                    minDistance = distance;
+                    closestValue = attrValue;
+                }
+            }
+            Object child = tree.getChild(closestValue);
+            result = scanRecursive(child, level, attrName + " = "
+                    + data[num],data);
             return result;
 //            System.out.println("unknown fault");
         } else {

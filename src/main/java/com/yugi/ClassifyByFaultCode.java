@@ -19,7 +19,7 @@ public class ClassifyByFaultCode {
         System.out.println( "Hello World!" );
         String readFilePath;
         readFilePath = "src/data/my_csv/freeze_frame_1.csv";
-        readFilePath = "src/data/my_csv/freeze_frame_2.csv";
+//        readFilePath = "src/data/my_csv/freeze_frame_2.csv";
         String[] csvHeaders;
         csvHeaders = new String[]{ "id",
                 "FaultCode",
