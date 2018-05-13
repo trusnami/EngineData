@@ -37,7 +37,6 @@ public class Sampling {
                 "MonitoringModuleVoltage" };
 
 //        randomSamplingProcess(attrNames);
-//        stratifiedSampling(attrNames);
         stratifiedSamplingProcess(attrNames);
     }
 
@@ -195,14 +194,23 @@ public class Sampling {
     }
 
     static void randomSamplingProcess(String[] attrNames){
-        String[][] rawData = readCSV("src/data/my_csv/freeze_frame_1.csv");
+        String[][] rawData = readCSV("src/data/my_csv/freeze_frame_1_proto.csv");
         double avg = 0;
         String recordPath;
-        String samplingName = "RandomSampling1";
+        int samplingNum = 3;
+        String samplingName = "RandomSampling" + samplingNum;
         for (int i = 0; i < 100; i++) {
-            randomSampling(rawData);
-//            randomSampling2(rawData);
-//            randomSampling3(rawData);
+            switch (samplingNum) {
+                case 1:
+                    randomSampling(rawData);
+                    break;
+                case 2:
+                    randomSampling2(rawData);
+                    break;
+                case 3:
+                    randomSampling3(rawData);
+
+            }
             Map<Object, List<DecisionTree.Sample>> samples = DecisionTree.readSamples(attrNames,trainData);
             Object decisionTree = DecisionTree.generateDecisionTree(samples, attrNames);
             String outputPath = null;

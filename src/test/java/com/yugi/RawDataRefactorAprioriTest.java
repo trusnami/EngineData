@@ -7,10 +7,10 @@ import org.junit.Test;
 /**
  * Unit test for simple RawDataRefactor.
  */
-public class RawDataRefactorTest
+public class RawDataRefactorAprioriTest
 {
     /**
-     * Rigorous Test :-)
+     * Rigorous AprioriTest :-)
      */
     @Test
     public void shouldAnswerWithTrue()
