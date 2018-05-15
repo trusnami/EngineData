@@ -19,9 +19,12 @@ public class ClassifyByFaultCode {
         System.out.println( "Hello World!" );
         String readFilePath;
         readFilePath = "src/data/my_csv/freeze_frame_1.csv";
+        readFilePath = "src/data/my_csv/freeze_frame_0_no_id.csv";
 //        readFilePath = "src/data/my_csv/freeze_frame_2.csv";
+        readFilePath = "src/data/my_csv/freeze_frame2_proto.csv";
         String[] csvHeaders;
-        csvHeaders = new String[]{ "id",
+        csvHeaders = new String[]{
+                "id",
                 "FaultCode",
                 "Speed",
                 "EngineSpeed",
@@ -43,30 +46,53 @@ public class ClassifyByFaultCode {
                 "AcceleratorPedalSensor1Signal",
                 "MonitoringModuleVoltage" };
         csvHeaders = new String[]{
-                "Speed",
-                "EngineSpeed",
-                "CoolantTemperature",
-                "AccelerationPedal1",
-                "AmbientTemperature",
-                "BatteryVoltage",
-                "RailPressure",
-                "ComputationalLoadValue",
-                "AtmosphericPressure",
-                "EngineLoad",
-                "ManifoldAbsolutePressure",
-                "TorqueMode",
-                "IntakeAirTemperature",
-                "AcceleratorPedal1Opening",
-                "AcceleratorPedal2Opening",
-                "IntakeFlow",
-                "AcceleratorPedalSensor1Signal",
-                "MonitoringModuleVoltage",
-                "FaultCode",};
+            "Speed",
+            "EngineSpeed",
+            "CoolantTemperature",
+            "AccelerationPedal1",
+            "AmbientTemperature",
+            "BatteryVoltage",
+            "RailPressure",
+            "ComputationalLoadValue",
+            "AtmosphericPressure",
+            "EngineLoad",
+            "ManifoldAbsolutePressure",
+            "TorqueMode",
+            "IntakeAirTemperature",
+            "AcceleratorPedal1Opening",
+            "AcceleratorPedal2Opening",
+            "IntakeFlow",
+            "AcceleratorPedalSensor1Signal",
+            "MonitoringModuleVoltage",
+            "FaultCode",};
+//        csvHeaders = new String[]{
+//                "FaultCode",
+//                "Speed",
+//                "EngineSpeed",
+//                "CoolantTemperature",
+//                "AccelerationPedal1",
+//                "AmbientTemperature",
+//                "BatteryVoltage",
+//                "RailPressure",
+//                "ComputationalLoadValue",
+//                "AtmosphericPressure",
+//                "EngineLoad",
+//                "ManifoldAbsolutePressure",
+//                "TorqueMode",
+//                "IntakeAirTemperature",
+//                "AcceleratorPedal1Opening",
+//                "AcceleratorPedal2Opening",
+//                "IntakeFlow",
+//                "AcceleratorPedalSensor1Signal",
+//                "MonitoringModuleVoltage",
+//                };
         readFreezeFrames(readFilePath);
         readFaultCode();
         String writePath;
         writePath = "classify";
         writePath = "classify2";
+        writePath = "classify3";
+        writePath = "classify4";
         int faultCodenum;
         faultCodenum = 0;
         faultCodenum = 18;
@@ -142,6 +168,17 @@ public class ClassifyByFaultCode {
             for (String[] csvContent:
                  freezeFrames) {
                 if (csvContent[faultCodeNum].equals(faultCode)){
+//                    String[] tempArray = new String[csvContent.length-1];
+//                    int j = 0;
+//                    for (int i = 0; i < csvContent.length-1; i++) {
+//                        if (j != faultCodeNum){
+//                            tempArray[i] = csvContent[j];
+//                            j++;
+//                        } else {
+//                            j++;
+//                        }
+//                    }
+//                    csvWriter.writeRecord(tempArray);
                     csvWriter.writeRecord(csvContent);
                 }
             }

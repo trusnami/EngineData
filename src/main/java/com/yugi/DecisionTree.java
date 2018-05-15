@@ -43,17 +43,17 @@ public class DecisionTree {
         // 决策树剪枝
 //        decisionTree = pruning(decisionTree);
         // 输出决策树
-        String outputPath = "src/data/result_txt/DecisionTree3.txt";
-//        outputFile(decisionTree, 0, null,outputPath);
+        String outputPath = "src/data/result_txt/DecisionTreeFinal.txt";
+        outputFile(decisionTree, 0, null,outputPath);
 //        outputDecisionTree(decisionTree, 0, null);
         // 利用生成的决策树判断
 //        decide(data,decisionTree);
-        String path = "src/data/my_csv/test.csv";
-        String[][] testData;
-        testData = readTestCSV(path);
-        double precision = 0;
-        precision = testPrecision(testData,decisionTree);
-        System.out.println("precision:"+precision);
+//        String path = "src/data/my_csv/test.csv";
+//        String[][] testData;
+//        testData = readTestCSV(path);
+//        double precision = 0;
+//        precision = testPrecision(testData,decisionTree,attrNames);
+//        System.out.println("precision:"+precision);
 //        double[][] testData = readTestCSV(path);
 //        for (double[] data:
 //             testData) {
@@ -71,7 +71,7 @@ public class DecisionTree {
             // 用来保存数据
             ArrayList<String[]> csvFileList = new ArrayList<String[]>();
             // 定义一个CSV路径
-            String csvFilePath = "src/data/my_csv/freeze_frame_2.csv";
+            String csvFilePath = "src/data/my_csv/freeze_frame2_proto.csv";
             // 创建CSV读对象 例如:CsvReader(文件路径，分隔符，编码格式);
             CsvReader reader = new CsvReader(csvFilePath, ',', Charset.forName("UTF-8"));
             // 跳过表头 如果需要表头的话，这句可以忽略
@@ -364,15 +364,15 @@ public class DecisionTree {
      * 读取测试数据集，并返回决策准确率
      */
 
-    static double testPrecision(String[][] testData, Object decisionTree){
+    static double testPrecision(String[][] testData, Object decisionTree, String[] attrNames){
         double rightCode = 0;
         String faultCode = null;
         for (String[] data:
              testData) {
 //            System.out.println(data[18]);
-            faultCode = decide(data, decisionTree);
+            faultCode = decide(data, decisionTree,attrNames);
 //            System.out.println("faultCode:"+faultCode);
-            if (faultCode.equals(data[18])){
+            if (faultCode.equals(data[data.length-1])){
                 rightCode++;
             }
         }
@@ -384,7 +384,7 @@ public class DecisionTree {
      * 扫描决策树进行决策
      */
 
-    static String decide(String[] data ,Object decisionTree){
+    static String decide(String[] data ,Object decisionTree, String[] attrNames){
 
 //        System.out.println();
         double[] testData = new double[data.length-1];
@@ -392,12 +392,12 @@ public class DecisionTree {
             testData[i] = Double.parseDouble(data[i]);
         }
 
-        String faultCode = scanRecursive(decisionTree, 0, null, testData);
+        String faultCode = scanRecursive(decisionTree, 0, null, testData, attrNames);
 //        System.out.println("decide faultCode: "+faultCode);
         return faultCode;
     }
 
-    static String scanRecursive(Object obj, int level, Object from, double[] data){
+    static String scanRecursive(Object obj, int level, Object from, double[] data, String[] attrNames){
         String result = "unknown fault";
 //        if (from != null)
 //            System.out.printf("(%s):", from);
@@ -405,87 +405,44 @@ public class DecisionTree {
             Tree tree = (Tree) obj;
             String attrName = tree.getAttribute();
             int num = 0;
-            switch (attrName) {
-                case "Speed":
-                    num = 0;
+
+            for (int i = 0; i < attrNames.length; i++) {
+                if (attrName.equals(attrNames[i])){
+                    num = i;
                     break;
-                case "EngineSpeed":
-                    num = 1;
-                    break;
-                case "CoolantTemperature":
-                    num = 2;
-                    break;
-                case "AccelerationPedal1":
-                    num = 3;
-                    break;
-                case "AmbientTemperature":
-                    num = 4;
-                    break;
-                case "BatteryVoltage":
-                    num = 5;
-                    break;
-                case "RailPressure":
-                    num = 6;
-                    break;
-                case "ComputationalLoadValue":
-                    num = 7;
-                    break;
-                case "AtmosphericPressure":
-                    num = 8;
-                    break;
-                case "EngineLoad":
-                    num = 9;
-                    break;
-                case "ManifoldAbsolutePressure":
-                    num = 10;
-                    break;
-                case "TorqueMode":
-                    num = 11;
-                    break;
-                case "IntakeAirTemperature":
-                    num = 12;
-                    break;
-                case "AcceleratorPedal1Opening":
-                    num = 13;
-                    break;
-                case "AcceleratorPedal2Opening":
-                    num = 14;
-                    break;
-                case "IntakeFlow":
-                    num = 15;
-                    break;
-                case "AcceleratorPedalSensor1Signal":
-                    num = 16;
-                    break;
-                case "MonitoringModuleVoltage":
-                    num = 17;
-                    break;
+                }
             }
+
+
             for (Object attrValue : tree.getAttributeValues()) {
                 Object child = tree.getChild(attrValue);
                if (data[num] == Double.parseDouble((String)attrValue)){
                    result = scanRecursive(child, level, attrName + " = "
-                           + attrValue,data);
+                           + attrValue,data,attrNames);
                }
+//               if (((String)attrValue).equals(data[num]+"")){
+//                   result = scanRecursive(child, level, attrName + " = "
+//                           + attrValue,data,attrNames);
+//               }
 
             }
 
-            if (!result.equals("unknown fault")){
-                return result;
-            }
-
-            Object closestValue = null;
-            double minDistance = Double.MAX_VALUE;
-            for (Object attrValue : tree.getAttributeValues()) {
-                double distance = Math.abs(data[num] - Double.parseDouble((String)attrValue));
-                if (distance < minDistance){
-                    minDistance = distance;
-                    closestValue = attrValue;
-                }
-            }
-            Object child = tree.getChild(closestValue);
-            result = scanRecursive(child, level, attrName + " = "
-                    + data[num],data);
+//            if (!result.equals("unknown fault")){
+//                return result;
+//            }
+//
+//            Object closestValue = null;
+//            double minDistance = Double.MAX_VALUE;
+//            for (Object attrValue : tree.getAttributeValues()) {
+//                double distance = Math.abs(data[num] - Double.parseDouble((String)attrValue));
+//                if (distance < minDistance){
+//                    minDistance = distance;
+//                    closestValue = attrValue;
+//                }
+//            }
+//            Object child = tree.getChild(closestValue);
+//            result = scanRecursive(child, level, attrName + " = "
+//                    + data[num],data,attrNames);
             return result;
 //            System.out.println("unknown fault");
         } else {

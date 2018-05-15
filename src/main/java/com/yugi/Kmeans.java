@@ -94,6 +94,9 @@ public class Kmeans {
             // 逐行读入除表头的数据
             while (reader.readRecord()) {
 //                System.out.println(reader.getRawRecord());
+                if (reader.getValues()[num].equals("NULL")){
+                    continue;
+                }
                 Node node = new Node();
                 DecimalFormat df = new DecimalFormat("#.###");
                 double data = Double.parseDouble(reader.getValues()[num]);
@@ -263,6 +266,7 @@ public class Kmeans {
 
             for (int i = 0; i < clusterList.size(); i++) {
                 out.println(" cluster " + i + " : " + clusterList.get(i).get(0) + " to " + clusterList.get(i).get(clusterList.get(i).size()-1) + " size: " + clusterList.get(i).size());
+                System.out.println(" cluster " + i + " : " + clusterList.get(i).get(0) + " to " + clusterList.get(i).get(clusterList.get(i).size()-1) + " size: " + clusterList.get(i).size());
             }
 
             out.close();
@@ -275,35 +279,73 @@ public class Kmeans {
     public static void main(String[] args) {
         Kmeans kmeans = new Kmeans();
 //        kmeans.setKmeansInput("src/data/my_csv/classify/0-0.csv");
-        String faultCode = "P0016";
-        String header = "AcceleratorPedalSensor1Signal";
-        int num = 19;
-        kmeans.setKmeansInput2("src/data/my_csv/classify/"+faultCode+".csv", num);
+        String faultCode = "P0113";
+        String header;
+        int num = 15;
+        String[] headers = new String[]{
+//                         0
+                "Speed",
+//         1
+                "EngineSpeed",
+//         2
+                "CoolantTemperature",
+//         3
+                "AccelerationPedal1",
+//         4
+                "AmbientTemperature",
+//         5
+                "BatteryVoltage",
+//         6
+                "RailPressure",
+//         7
+                "ComputationalLoadValue",
+//        8
+                "AtmosphericPressure",
+//        9
+                "EngineLoad",
+//        10
+                "ManifoldAbsolutePressure",
+//        11
+                "TorqueMode",
+//        12
+                "IntakeAirTemperature",
+//        13
+                "AcceleratorPedal1Opening",
+//        14
+                "AcceleratorPedal2Opening",
+//        15
+                "IntakeFlow",
+//        16
+                "AcceleratorPedalSensor1Signal",
+//        17
+                "MonitoringModuleVoltage"
+
+        };
+        header = headers[num];
+        kmeans.setKmeansInput2("src/data/my_csv/classify4/"+faultCode+".csv", num);
         kmeans.printKmeansResults("src/data/result_txt/"+faultCode+"/"+faultCode+header+"Results.txt");
 
     }
 
 
-//         0   "id",
-//         1   "FaultCode",
-//         2   "Speed",
-//         3   "EngineSpeed",
-//         4   "CoolantTemperature",
-//         5   "AccelerationPedal1",
-//         6   "AmbientTemperature",
-//         7   "BatteryVoltage",
-//         8   "RailPressure",
-//         9    "ComputationalLoadValue",
-//        10    "AtmosphericPressure",
-//        11    "EngineLoad",
-//        12   "ManifoldAbsolutePressure",
-//        13    "TorqueMode",
-//        14    "FreezeFrameLength",
-//        15    "IntakeAirTemperature",
-//        16    "AcceleratorPedal1Opening",
-//        17    "AcceleratorPedal2Opening",
-//        18    "IntakeFlow",
-//        19    "AcceleratorPedalSensor1Signal",
-//        20    "MonitoringModuleVoltage"
+
+//         0   "Speed",
+//         1   "EngineSpeed",
+//         2   "CoolantTemperature",
+//         3   "AccelerationPedal1",
+//         4   "AmbientTemperature",
+//         5   "BatteryVoltage",
+//         6   "RailPressure",
+//         7    "ComputationalLoadValue",
+//        8    "AtmosphericPressure",
+//        9    "EngineLoad",
+//        10   "ManifoldAbsolutePressure",
+//        11    "TorqueMode",
+//        12    "IntakeAirTemperature",
+//        13    "AcceleratorPedal1Opening",
+//        14    "AcceleratorPedal2Opening",
+//        15    "IntakeFlow",
+//        16    "AcceleratorPedalSensor1Signal",
+//        17    "MonitoringModuleVoltage"
 }
 
