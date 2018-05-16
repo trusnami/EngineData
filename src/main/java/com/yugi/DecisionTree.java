@@ -1,5 +1,6 @@
 package com.yugi;
 
+import Model.ConfusionMatrix;
 import com.csvreader.CsvReader;
 
 import java.io.FileNotFoundException;

@@ -2,29 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eee65d22-ef6b-414c-8abe-858f5a796f6b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yugi/Apriori.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yugi/FPTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yugi/RelationData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yugi/TreeNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yugi/Validation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/ConfusionMatrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yugi/ConfusionMatrixTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/FreezeFrame2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/FreezeFrame2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yugi/ClassifyByFaultCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yugi/ClassifyByFaultCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yugi/Kmeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yugi/Kmeans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yugi/RawDataRefactor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yugi/RawDataRefactor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yugi/Sampling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yugi/Sampling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/FreezeFrame2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/FreezeFrame2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yugi/ClassifyByFaultCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yugi/ClassifyByFaultCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yugi/DecisionTree$Sample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yugi/DecisionTree$Sample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yugi/DecisionTree$Tree.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yugi/DecisionTree$Tree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yugi/DecisionTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yugi/DecisionTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yugi/Kmeans.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yugi/Kmeans.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yugi/RawDataRefactor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yugi/RawDataRefactor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yugi/Sampling.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yugi/Sampling.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yugi/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/yugi/RawDataRefactorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yugi/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yugi/Validation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yugi/DecisionTree2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yugi/Validation.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,10 +25,42 @@
       <file leaf-file-name="DecisionTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+            <state relative-caret-position="100">
+              <caret line="367" column="17" selection-start-line="367" selection-start-column="17" selection-end-line="367" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Validation.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/Validation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConfusionMatrix.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Model/ConfusionMatrix.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2580">
+              <caret line="172" column="42" lean-forward="true" selection-start-line="172" selection-start-column="42" selection-end-line="172" selection-end-column="42" />
+              <folding>
+                <element signature="e#5974#5975#0" expanded="true" />
+                <element signature="e#6003#6004#0" expanded="true" />
+                <element signature="e#6051#6052#0" expanded="true" />
+                <element signature="e#6087#6088#0" expanded="true" />
+                <element signature="e#6125#6126#0" expanded="true" />
+                <element signature="e#6157#6158#0" expanded="true" />
+                <element signature="e#6209#6210#0" expanded="true" />
+                <element signature="e#6251#6252#0" expanded="true" />
+                <element signature="e#6281#6282#0" expanded="true" />
+                <element signature="e#6310#6311#0" expanded="true" />
+                <element signature="e#6351#6352#0" expanded="true" />
+                <element signature="e#6387#6388#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -51,8 +69,8 @@
       <file leaf-file-name="DecisionTree2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+            <state relative-caret-position="-62">
+              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,32 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Kmeans.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/Kmeans.java">
+      <file leaf-file-name="ConfusionMatrixTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/ConfusionMatrixTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="296" column="32" selection-start-line="296" selection-start-column="32" selection-end-line="296" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sampling.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/Sampling.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="317" lean-forward="true" selection-start-line="317" selection-end-line="317" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="278">
+              <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -120,14 +117,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/yugi/TreeNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/FreezeFrame2.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yugi/RawDataRefactor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yugi/Validation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yugi/ClassifyByFaultCode.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yugi/RelationData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yugi/FPTree.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree2.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yugi/Kmeans.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yugi/ConfusionMatrixTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yugi/Sampling.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yugi/Validation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Model/ConfusionMatrix.java" />
       </list>
     </option>
   </component>
@@ -158,9 +157,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,6 +188,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
               <item name="my_csv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EngineData" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EngineData" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="my_csv" type="462c0819:PsiDirectoryNode" />
+              <item name="classify6" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EngineData" type="b2602c69:ProjectViewProjectNode" />
@@ -265,6 +269,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -295,12 +302,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Sampling">
+  <component name="RunManager" selected="Application.Validation">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
-    <configuration name="DecisionTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yugi.DecisionTree" />
+    <configuration name="ConfusionMatrixTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yugi.ConfusionMatrixTest" />
       <module name="EngineData" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -326,17 +333,6 @@
       <module name="EngineData" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
-    <configuration name="FPTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yugi.FPTree" />
-      <module name="EngineData" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.yugi.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
     <configuration name="Kmeans" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.yugi.Kmeans" />
       <module name="EngineData" />
@@ -350,6 +346,17 @@
     </configuration>
     <configuration name="Sampling" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.yugi.Sampling" />
+      <module name="EngineData" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yugi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="Validation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yugi.Validation" />
       <module name="EngineData" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -417,19 +424,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.EngineData" />
-      <item itemvalue="Application.FPTree" />
-      <item itemvalue="Application.DecisionTree" />
       <item itemvalue="Application.DecisionTree2" />
       <item itemvalue="Application.Kmeans" />
       <item itemvalue="Application.Sampling" />
+      <item itemvalue="Application.Validation" />
+      <item itemvalue="Application.ConfusionMatrixTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Validation" />
+        <item itemvalue="Application.ConfusionMatrixTest" />
+        <item itemvalue="Application.DecisionTree2" />
         <item itemvalue="Application.Sampling" />
         <item itemvalue="Application.Kmeans" />
-        <item itemvalue="Application.DecisionTree2" />
-        <item itemvalue="Application.DecisionTree" />
-        <item itemvalue="Application.FPTree" />
       </list>
     </recent_temporary>
   </component>
@@ -466,12 +473,16 @@
       <workItem from="1526261958859" duration="9506000" />
       <workItem from="1526275186481" duration="2686000" />
       <workItem from="1526305543944" duration="4835000" />
-      <workItem from="1526345006425" duration="389000" />
+      <workItem from="1526345006425" duration="3060000" />
+      <workItem from="1526378727695" duration="1794000" />
+      <workItem from="1526380918422" duration="38000" />
+      <workItem from="1526395012407" duration="1652000" />
+      <workItem from="1526433952938" duration="11259000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116655000" />
+    <option name="totallyTimeSpent" value="134069000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="802" extended-state="6" />
@@ -486,13 +497,14 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50143063" side_tool="true" weight="0.32907802" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4985694" visible="true" weight="0.2212766" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.13900709" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4985694" visible="true" weight="0.23404256" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49928468" weight="0.32907802" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989429" visible="true" weight="0.35336193" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989429" visible="true" weight="0.37339056" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.18014185" />
       <window_info id="Structure" order="1" sideWeight="0.5010571" side_tool="true" weight="0.25751072" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -504,7 +516,6 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.18014185" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
@@ -512,13 +523,13 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985694" visible="true" weight="0.32907802" />
       <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989429" visible="true" weight="0.26466382" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Structure" order="1" sideWeight="0.5010571" side_tool="true" weight="0.25751072" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -527,14 +538,14 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49928468" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49928468" weight="0.4" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50143063" side_tool="true" weight="0.32907802" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.34042552" />
       <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989429" visible="true" weight="0.26466382" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -563,24 +574,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/FreezeFrame1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/RawDataRefactor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4770">
-          <caret line="318" column="17" selection-start-line="318" selection-start-column="17" selection-end-line="318" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#readFreezeDetail2#0;class#RawDataRefactor#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/Kmeans.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4275">
@@ -932,13 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/Validation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="40" column="81" lean-forward="true" selection-start-line="40" selection-start-column="81" selection-end-line="40" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/FPTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -979,35 +965,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
+        <state relative-caret-position="458">
           <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/Kmeans.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
+        <state relative-caret-position="15">
           <caret line="296" column="32" selection-start-line="296" selection-start-column="32" selection-end-line="296" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/ConfusionMatrixTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="367" column="17" selection-start-line="367" selection-start-column="17" selection-end-line="367" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1016,8 +999,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/Sampling.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="317" lean-forward="true" selection-start-line="317" selection-end-line="317" />
+        <state relative-caret-position="344">
+          <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/DecisionTree2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-62">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/ConfusionMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2580">
+          <caret line="172" column="42" lean-forward="true" selection-start-line="172" selection-start-column="42" selection-end-line="172" selection-end-column="42" />
+          <folding>
+            <element signature="e#5974#5975#0" expanded="true" />
+            <element signature="e#6003#6004#0" expanded="true" />
+            <element signature="e#6051#6052#0" expanded="true" />
+            <element signature="e#6087#6088#0" expanded="true" />
+            <element signature="e#6125#6126#0" expanded="true" />
+            <element signature="e#6157#6158#0" expanded="true" />
+            <element signature="e#6209#6210#0" expanded="true" />
+            <element signature="e#6251#6252#0" expanded="true" />
+            <element signature="e#6281#6282#0" expanded="true" />
+            <element signature="e#6310#6311#0" expanded="true" />
+            <element signature="e#6351#6352#0" expanded="true" />
+            <element signature="e#6387#6388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yugi/Validation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
         </state>
       </provider>
     </entry>

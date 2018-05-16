@@ -1,5 +1,6 @@
 package com.yugi;
 
+import Model.ConfusionMatrix;
 import com.csvreader.CsvReader;
 
 import java.io.FileNotFoundException;
@@ -39,7 +40,7 @@ public class Sampling {
 //        randomSamplingProcess(attrNames);
 //        stratifiedSamplingProcess(attrNames);
 //        randomSamplingProcess2(attrNames);
-        systematicSamplingProcess(attrNames);
+//        systematicSamplingProcess(attrNames);
     }
 
     static void recordprecision(String filePath, double precision){
@@ -220,16 +221,17 @@ public class Sampling {
             String outputPath = null;
 //            outputPath = "src/data/result_txt/RandomSamplingDecisionTree.txt";
 //            DecisionTree.outputFile(decisionTree, 0, null,outputPath);
-            double precision = 0;
-            precision = DecisionTree2.testPrecision(testData,decisionTree,attrNames);
+            double accuracy = 0;
+            ConfusionMatrix matrix = DecisionTree2.testPrecision(testData,decisionTree,attrNames);
+            accuracy = matrix.getAccuray();
 //            recordPath = "src/data/result_txt/record/"+samplingName+"Precision.txt";
 //            recordprecision(recordPath,precision);
-            System.out.println("precision:"+precision);
-            avg = avg + precision;
+            System.out.println("accuracy:"+accuracy);
+            avg = avg + accuracy;
         }
         avg = avg / 10;
-        System.out.println("avg precision:"+avg);
-        recordPath = "src/data/result_txt/record/"+"AvgPrecision.txt";
+        System.out.println("avg accuracy:"+avg);
+        recordPath = "src/data/result_txt/record/"+"AvgAccuracy.txt";
         recordAvgPrecision(recordPath,avg,samplingName);
     }
 
@@ -248,13 +250,14 @@ public class Sampling {
                 randomSampling(rawData,probability);
                 Map<Object, List<DecisionTree.Sample>> samples = DecisionTree.readSamples(attrNames,trainData);
                 Object decisionTree = DecisionTree.generateDecisionTree(samples, attrNames);
-                double precision = 0;
-                precision = DecisionTree2.testPrecision(testData,decisionTree,attrNames);
+                double accuracy = 0;
+                ConfusionMatrix matrix = DecisionTree2.testPrecision(testData,decisionTree,attrNames);
+                accuracy = matrix.getAccuray();
 //                System.out.println("precision:"+precision);
-                avg = avg + precision;
+                avg = avg + accuracy;
             }
             avg = avg / 100;
-            System.out.println("probability:"+probability+" avg precision:"+avg);
+            System.out.println("probability:"+probability+" avg accuracy:"+avg);
 //            recordPath = "src/data/result_txt/record/"+"AvgPrecisionByProbability.txt";
 //            recordAvgPrecision(recordPath,avg,samplingName);
             probability = probability + 0.05;
@@ -346,30 +349,30 @@ public class Sampling {
         return codeList;
     }
 
-    static void stratifiedSamplingProcess(String[] attrNames){
-        double avg = 0;
-        String recordPath;
-        String samplingName = "StratifiedSampling";
-        Object decisionTree = null;
-        String outputPath = null;
-        for (int i = 0; i < 100; i++) {
-            stratifiedSampling();
-            Map<Object, List<DecisionTree.Sample>> samples = DecisionTree.readSamples(attrNames,trainData);
-            decisionTree = DecisionTree.generateDecisionTree(samples, attrNames);
-            double precision = 0;
-            precision = DecisionTree.testPrecision(testData,decisionTree,attrNames);
-            recordPath = "src/data/result_txt/record/"+samplingName+"Precision.txt";
-            recordprecision(recordPath,precision);
-            System.out.println("precision:"+precision);
-            avg = avg + precision;
-        }
-//        outputPath = "src/data/result_txt/"+samplingName+"DecisionTree.txt";
-//        DecisionTree.outputFile(decisionTree, 0, null,outputPath);
-        avg = avg / 100;
-        System.out.println("avg precision:"+avg);
-        recordPath = "src/data/result_txt/record/"+"AvgPrecision.txt";
-        recordAvgPrecision(recordPath,avg,samplingName);
-    }
+//    static void stratifiedSamplingProcess(String[] attrNames){
+//        double avg = 0;
+//        String recordPath;
+//        String samplingName = "StratifiedSampling";
+//        Object decisionTree = null;
+//        String outputPath = null;
+//        for (int i = 0; i < 100; i++) {
+//            stratifiedSampling();
+//            Map<Object, List<DecisionTree.Sample>> samples = DecisionTree.readSamples(attrNames,trainData);
+//            decisionTree = DecisionTree.generateDecisionTree(samples, attrNames);
+//            double precision = 0;
+//            precision = DecisionTree.testPrecision(testData,decisionTree,attrNames);
+//            recordPath = "src/data/result_txt/record/"+samplingName+"Precision.txt";
+//            recordprecision(recordPath,precision);
+//            System.out.println("precision:"+precision);
+//            avg = avg + precision;
+//        }
+////        outputPath = "src/data/result_txt/"+samplingName+"DecisionTree.txt";
+////        DecisionTree.outputFile(decisionTree, 0, null,outputPath);
+//        avg = avg / 100;
+//        System.out.println("avg precision:"+avg);
+//        recordPath = "src/data/result_txt/record/"+"AvgPrecision.txt";
+//        recordAvgPrecision(recordPath,avg,samplingName);
+//    }
 
     static void systematicSampling(String[][] rawData){
         ArrayList<String[]> trainDataList = new ArrayList<>();
@@ -399,30 +402,30 @@ public class Sampling {
 
     }
 
-    static void systematicSamplingProcess(String[] attrNames){
-        double avg = 0;
-        String recordPath;
-        String samplingName = "SystematicSampling";
-        Object decisionTree = null;
-        String outputPath = null;
-        String[][] rawData = readCSV("src/data/my_csv/freeze_frame_1_proto.csv");
-        for (int i = 0; i < 100; i++) {
-            systematicSampling(rawData);
-            Map<Object, List<DecisionTree.Sample>> samples = DecisionTree.readSamples(attrNames,trainData);
-            decisionTree = DecisionTree.generateDecisionTree(samples, attrNames);
-            double precision = 0;
-            precision = DecisionTree.testPrecision(testData,decisionTree,attrNames);
-            recordPath = "src/data/result_txt/record/"+samplingName+"Precision.txt";
-            recordprecision(recordPath,precision);
-            System.out.println("precision:"+precision);
-            avg = avg + precision;
-        }
-//        outputPath = "src/data/result_txt/"+samplingName+"DecisionTree.txt";
-//        DecisionTree.outputFile(decisionTree, 0, null,outputPath);
-        avg = avg / 100;
-        System.out.println("avg precision:"+avg);
-        recordPath = "src/data/result_txt/record/"+"AvgPrecision.txt";
-        recordAvgPrecision(recordPath,avg,samplingName);
-    }
+//    static void systematicSamplingProcess(String[] attrNames){
+//        double avg = 0;
+//        String recordPath;
+//        String samplingName = "SystematicSampling";
+//        Object decisionTree = null;
+//        String outputPath = null;
+//        String[][] rawData = readCSV("src/data/my_csv/freeze_frame_1_proto.csv");
+//        for (int i = 0; i < 100; i++) {
+//            systematicSampling(rawData);
+//            Map<Object, List<DecisionTree.Sample>> samples = DecisionTree.readSamples(attrNames,trainData);
+//            decisionTree = DecisionTree.generateDecisionTree(samples, attrNames);
+//            double precision = 0;
+//            precision = DecisionTree.testPrecision(testData,decisionTree,attrNames);
+//            recordPath = "src/data/result_txt/record/"+samplingName+"Precision.txt";
+//            recordprecision(recordPath,precision);
+//            System.out.println("precision:"+precision);
+//            avg = avg + precision;
+//        }
+////        outputPath = "src/data/result_txt/"+samplingName+"DecisionTree.txt";
+////        DecisionTree.outputFile(decisionTree, 0, null,outputPath);
+//        avg = avg / 100;
+//        System.out.println("avg precision:"+avg);
+//        recordPath = "src/data/result_txt/record/"+"AvgPrecision.txt";
+//        recordAvgPrecision(recordPath,avg,samplingName);
+//    }
 
 }

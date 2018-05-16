@@ -1,11 +1,10 @@
 package com.yugi;
 
+import Model.ConfusionMatrix;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import static com.yugi.DecisionTree.generateDecisionTree;
-import static com.yugi.DecisionTree.readCSV;
-import static com.yugi.DecisionTree.readSamples;
 
 public class DecisionTree2 {
 
@@ -35,7 +34,7 @@ public class DecisionTree2 {
 //        data = new double[] {25.5, 4340, 1, 0 ,0, 0, 0, 0, 0, 5, 15 ,0, 0, 0, 0, 0, 0, 0
 //
 //        };
-        Object[][] rawData = readCSV();
+        Object[][] rawData = DecisionTree.readCSV();
         // 读取样本集
         Map<Object, List<DecisionTree.Sample>> samples = DecisionTree.readSamples(attrNames, rawData);
         // 生成决策树
@@ -52,20 +51,28 @@ public class DecisionTree2 {
      * 读取测试数据集，并返回决策准确率
      */
 
-    static double testPrecision(String[][] testData, Object decisionTree, String[] attrNames){
-        double rightCode = 0;
+    static ConfusionMatrix testPrecision(String[][] testData, Object decisionTree, String[] attrNames){
         String faultCode = null;
+        ArrayList<String> codeList = new ArrayList<>();
+        for (String[] testDatum : testData) {
+            faultCode = testDatum[testDatum.length-1];
+            if (!codeList.contains(faultCode)){
+                codeList.add(faultCode);
+            }
+        }
+
+        ConfusionMatrix matrix = new ConfusionMatrix(codeList);
         for (String[] data:
                 testData) {
 //            System.out.println(data[18]);
             faultCode = decide(data, decisionTree,attrNames);
 //            System.out.println("faultCode:"+faultCode);
-            if (faultCode.equals(data[data.length-1])){
-                rightCode++;
-            }
+            matrix.updateMatrix(data[data.length-1], faultCode);
+
         }
 
-        return 100 * rightCode/testData.length;
+        return matrix;
+//        return 100 * rightCode/testData.length;
     }
 
     /**
@@ -76,14 +83,14 @@ public class DecisionTree2 {
 
 //
         String faultCode = scanRecursive(decisionTree, 0, null, data, attrNames);
-        System.out.println("decide faultCode: "+faultCode);
+//        System.out.println("decide faultCode: "+faultCode);
         return faultCode;
     }
 
     static String scanRecursive(Object obj, int level, Object from, String[] data, String[] attrNames) {
         String result = "unknown fault";
-        if (from != null)
-            System.out.printf("(%s):", from);
+//        if (from != null)
+//            System.out.printf("(%s):", from);
         if (obj instanceof DecisionTree.Tree) {
             DecisionTree.Tree tree = (DecisionTree.Tree) obj;
             String attrName = tree.getAttribute();
